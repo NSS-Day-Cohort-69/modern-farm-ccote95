@@ -1,0 +1,35 @@
+title Modern-Farm
+
+participant main.js
+participant plan.js
+participant tractor.js
+participant harvester.js
+
+participant field.js
+participant seeds
+participant catalog.js
+
+
+
+
+
+main.js->plan.js: Get yearly plan
+main.js<--plan.js: returns a yearly plan.
+
+main.js->tractor.js: Start planting seeds
+tractor.js -> seeds: Create seed objects
+tractor.js <--seeds:returns seed object.
+tractor.js -> field.js: add the seed object to an array
+
+main.js ->field.js: Get the array of plants growing.
+main.js <--field.js: returns the growingInField array
+
+main.js ->harvester.js: Get plants ready for harvest
+main.js <--harvester.js: returns an array of harvested plants stored in plantsForHarvest.
+
+main.js -> catalog.js: Get the Catalog
+note right of catalog.js: loops for each crop and adds the crop to html.
+main.js <--catalog.js: returns forSaleHTML stored in inventory.
+note left of main.js: Displays HTML in browser.
+
+
